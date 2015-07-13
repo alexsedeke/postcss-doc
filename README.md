@@ -1,4 +1,4 @@
-# postcss-doc
+# postcss-doc [![wercker status](https://app.wercker.com/status/bff68cbb2ab30226b30a08f73d1f4f40/s/master "wercker status")](https://app.wercker.com/project/bykey/bff68cbb2ab30226b30a08f73d1f4f40)
 
 [PostCSS](https://github.com/postcss/postcss) plugin to generate a style guide for Air.
 
