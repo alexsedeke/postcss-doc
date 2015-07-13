@@ -1,0 +1,13 @@
+box: nodesource/node:vivid
+# Build definition
+build:
+  # The steps that will be executed on build
+  steps:
+    # A step that executes `npm install` command
+    - npm-install
+deploy:
+  steps:
+    - nahody/npm_publish:
+        username: $NPM_PUBLISH_USERNAME
+        email: $NPM_PUBLISH_EMAIL
+        password: $NPM_PUBLISH_PASSWORD
