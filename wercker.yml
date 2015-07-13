@@ -1,4 +1,4 @@
-box: nodesource/trusty:0.12.3
+box: nodesource/vivid:0.12.3
 # Build definition
 build:
   # The steps that will be executed on build
