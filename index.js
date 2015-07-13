@@ -6,11 +6,9 @@ var lodash      = require('lodash');
 var mdParse     = require('./lib/md_parse')
 var highlight   = require('./lib/css_highlight')
 
-module.exports = postcss.plugin('postcss-doc', function (processedCSS, options) {
-
+module.exports  = postcss.plugin('postcss-doc', function (processedCSS, options) {
     options                 = options || {};
     options.name            = options.name  !== undefined ? options.name  : 'Style Guide';
-    options.style           = fs.readFileSync(themePath + '/style.css', 'utf-8').trim();
     options.statistics      = { namespaces: [], keywords: [], files: [] };
 
     var _identifiers        = ['@var','@mixin','@element','@component','@modifier','@block','@block-element','@block-modifier'];
@@ -96,15 +94,12 @@ module.exports = postcss.plugin('postcss-doc', function (processedCSS, options) 
         var codeStyle = fs.readFileSync(__dirname + '/node_modules/highlight.js/styles/github.css', 'utf-8').trim();
         var assign = {
             projectName: options.name,
-            processedCSS: nano(css),
-            rootStyle: nano(rootStyle),
-            tmplStyle: nano(options.style),
-            codeStyle: nano(codeStyle),
+            processedCSS: nano.process(css),
+            rootStyle: nano.process(rootStyle),
+            codeStyle: nano.process(codeStyle),
             statistics: options.statistics,
             maps: maps
         }
-
-        console.log(assign.codeStyle);
 
         fs.writeFile('styleguide.json', JSON.stringify(assign), function (err) {
             if (err) {
@@ -162,4 +157,3 @@ module.exports = postcss.plugin('postcss-doc', function (processedCSS, options) 
         return root;
     }
 });
-
