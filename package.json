@@ -1,6 +1,6 @@
 {
   "name": "postcss-doc",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "postcss plugin to generate json file contained code documentation",
   "main": "index.js",
   "scripts": {
